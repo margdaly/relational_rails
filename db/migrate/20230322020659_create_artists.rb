@@ -4,8 +4,6 @@ class CreateArtists < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :sponsored
       t.integer :rank
-      t.datetime :created_at
-      t.datetime :updated_at
 
       t.timestamps
     end

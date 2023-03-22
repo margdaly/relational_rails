@@ -4,8 +4,6 @@ class CreatePaints < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :high_pressure
       t.integer :opacity
-      t.datetime :created_at
-      t.datetime :updated_at
       t.references :artist, foreign_key: true
 
       t.timestamps
