@@ -24,9 +24,28 @@ RSpec.describe 'the paints show page' do
       expect(page).to_not have_content(hazelnut.name)
     end
 
-    # it 'displays the paints brand'
-    # it 'displays if the paint is high_pressure'
-    # it 'displays the paints opacity'
-    # it 'displays the paints artist'
+    it 'displays the paints brand' do
+      visit "/paints/#{latte.id}"
+
+      expect(page).to have_content(latte.brand)
+      expect(page).to have_content(toffee.brand)
+      expect(page).to_not have_content(hazelnut.brand)
+    end
+
+    it 'displays if the paint is high_pressure' do
+      visit "/paints/#{hazelnut.id}"
+
+      expect(page).to have_content(hazelnut.high_pressure)
+      expect(page).to_not have_content(latte.high_pressure)
+      expect(page).to_not have_content(toffee.high_pressure)
+    end
+
+    it 'displays the paints opacity' do
+      visit "/paints/#{hazelnut.id}"
+
+      expect(page).to have_content(hazelnut.opacity)
+      expect(page).to_not have_content(latte.opacity)
+      expect(page).to_not have_content(toffee.opacity)
+    end
   end
 end
