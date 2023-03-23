@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'the artists show page' do
-  describe 'artists show page' do 
+  describe '/artists/:id' do 
     let!(:coyote) { Artist.create!(name: 'Criminal Coyote', sponsored: false, rank: 9) }
     let!(:graves) { Artist.create!(name: 'Mike Graves', sponsored: true, rank: 7) }
     let!(:mars) { Artist.create!(name: 'Farris Mars', sponsored: true, rank: 8) }
