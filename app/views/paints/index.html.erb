@@ -1,0 +1,7 @@
+<h1>Paint's Index Page</h1>
+<% @paints.each do |paint| %>
+  <h3><%= paint.name %></h3>
+  <p>Brand: <%= paint.brand %></p>
+  <p>High Pressure: <%= paint.high_pressure %></p>
+  <p>Opacity: <%= paint.opacity %></p>
+<% end %>
