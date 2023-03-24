@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe 'the paints show page' do
   let!(:graves) { Artist.create!(name: 'Mike Graves', sponsored: true, rank: 8) }
   let!(:toffee) { graves.paints.create!(name: 'Toffee', 
-                                brand: 'Montana Gold', 
+                                brand: 'Montana', 
                                 high_pressure: false, 
                                 opacity: 3) }
   let!(:latte) { graves.paints.create!(name: 'Latte', 
-                               brand: 'Montana Gold', 
+                               brand: 'Montana', 
                                high_pressure: false, 
                                opacity: 4) }
   let!(:hazelnut) { graves.paints.create!(name: 'Hazelnut', 
