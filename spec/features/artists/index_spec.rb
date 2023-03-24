@@ -16,6 +16,7 @@ RSpec.describe '/artists', type: :feature do
 
     it 'displays artists with most recently created first' do
       visit "/artists"
+      save_and_open_page
 
       expect(coyote.name).to appear_before(graves.name)
       expect(graves.name).to appear_before(mars.name)
