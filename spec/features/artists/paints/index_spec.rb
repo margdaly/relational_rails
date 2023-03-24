@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Artists paints index' do
-  let!(:coyote) { Artist.create!(name: 'Mike coyote', 
+RSpec.describe 'Artist paints index' do
+  let!(:coyote) { Artist.create!(name: 'Criminal Coyote', 
                                  sponsored: true, 
                                  rank: 8) }
   let!(:lava_orange) { coyote.paints.create!(name: 'Lava Orange', 
