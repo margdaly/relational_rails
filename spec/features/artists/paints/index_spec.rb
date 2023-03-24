@@ -20,9 +20,32 @@ RSpec.describe 'Artist paints index' do
   it 'displays all the names of the paint for the artist' do
     visit "/artists/#{coyote.id}/paints"
 
-    save_and_open_page
     expect(page).to have_content(lava_orange.name)
     expect(page).to have_content(black.name)
     expect(page).to have_content(malachite.name)
+  end
+
+  it 'displays all the brands of the paint for the artist' do
+    visit "/artists/#{coyote.id}/paints"
+
+    expect(page).to have_content(lava_orange.brand)
+    expect(page).to have_content(black.brand)
+    expect(page).to have_content(malachite.brand)
+  end
+
+  it 'displays if all the paint is high_pressure or not for the artist' do
+    visit "/artists/#{coyote.id}/paints"
+
+    expect(page).to have_content(lava_orange.high_pressure)
+    expect(page).to have_content(black.high_pressure)
+    expect(page).to have_content(malachite.high_pressure)
+  end
+
+  it 'displays all the opacity of the paint for the artist' do
+    visit "/artists/#{coyote.id}/paints"
+
+    expect(page).to have_content(lava_orange.opacity)
+    expect(page).to have_content(black.opacity)
+    expect(page).to have_content(malachite.opacity)
   end
 end
