@@ -1,0 +1,8 @@
+<h1><%= @artist.name %>'s Paints</h1>
+<% @paints.each do |paint| %>
+  <h3><%= paint.name %></h3>
+  <p>
+  Brand: <%= paint.brand %><br>
+  High Pressure: <%= paint.high_pressure %><br> 
+  Opacity: <%= paint.opacity %>
+<% end %>
