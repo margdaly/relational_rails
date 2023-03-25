@@ -6,7 +6,6 @@ class Artist < ApplicationRecord
   end
 
   def paint_count
-    # require 'pry'; binding.pry
     self.paints.count
   end
 end
