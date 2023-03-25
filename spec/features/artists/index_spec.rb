@@ -21,5 +21,26 @@ RSpec.describe '/artists', type: :feature do
       expect(graves.name).to appear_before(mars.name)
       expect(mars.name).to_not appear_before(coyote.name)
     end
+
+    it 'has link at top of every page that takes visitor to artist index page' do
+      artist = "Artist"
+      visit "/artists"
+
+      click_on artists
+
+      expect(current_path).to eq("/artists")
+
+      visit "/artists/#{graves.id}"
+
+      click_on artists
+
+      expect(current_path).to eq("/artists")
+
+      visit "/artists/#{graves.id}/paints"
+
+      click_on artists
+
+      expect(current_path).to eq("/artists")
+    end
   end
 end

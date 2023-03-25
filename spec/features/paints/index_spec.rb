@@ -47,7 +47,7 @@ RSpec.describe Paint, type: :feature do
       expect(page).to have_content(hazelnut.opacity)
     end
 
-    it 'link at top of page takes visitor to paint index page' do
+    it 'has link at top of any page takes visitor to paint index page' do
       paints = "Paints"
       visit "/artists"
 
