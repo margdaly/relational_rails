@@ -20,6 +20,12 @@ RSpec.describe Artist do
                                             high_pressure: true, 
                                             opacity: 5) }
     
+    describe "validations" do
+      it { should validate_presence_of :name }
+      it { should validate_presence_of :sponsored }
+      it { should validate_presence_of :rank }
+    end
+
     describe '#order_by_most_recently_created' do
       it 'orders paints by most recently created' do
         expect(graves.paints.last).to eq(hazelnut)
