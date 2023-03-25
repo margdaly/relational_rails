@@ -52,7 +52,19 @@ RSpec.describe Paint, type: :feature do
       visit "/artists"
 
       click_on paints
-      
+
+      expect(current_path).to eq("/paints")
+
+      visit "/artists/#{graves.id}"
+
+      click_on paints
+
+      expect(current_path).to eq("/paints")
+
+      visit "/artists/#{graves.id}/paints"
+
+      click_on paints
+
       expect(current_path).to eq("/paints")
     end
   end
