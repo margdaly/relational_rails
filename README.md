@@ -58,7 +58,7 @@ When I visit a parent's show page
 I see a count of the number of children associated with this parent
 Usability
 
-[ ] done
+[x] done
 User Story 8, Child Index Link
 
 As a visitor

@@ -1,7 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Artist do
-  it { should have_many :paints }
+  describe 'relationships' do
+    it { should have_many :paints }
+  end
+
+  describe "validations" do
+    it { should validate_presence_of :name }
+  end
 
   describe '#instance_methods' do
     let!(:coyote) { Artist.create!(name: 'Criminal Coyote', sponsored: false, rank: 9) }
@@ -19,7 +25,7 @@ RSpec.describe Artist do
                                             brand: 'Molotow', 
                                             high_pressure: true, 
                                             opacity: 5) }
-    
+
     describe '#order_by_most_recently_created' do
       it 'orders paints by most recently created' do
         expect(graves.paints.last).to eq(hazelnut)

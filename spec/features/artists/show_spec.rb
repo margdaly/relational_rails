@@ -43,15 +43,15 @@ RSpec.describe 'the artists show page' do
     it 'displays the artists rank' do
       visit "/artists/#{mars.id}"
 
-      expect(page).to have_content(mars.rank)
-      expect(page).to_not have_content(coyote.rank)
+      expect(page).to have_content("Rank: 8")
+      expect(page).to_not have_content("Rank: 1")
     end
 
     it 'displays how much paint the artist has' do
       visit "/artists/#{graves.id}"
 
-      expect(page).to have_content(graves.paint_count)
-      expect(page).to_not have_content(coyote.paint_count)
+      expect(page).to have_content("Paint Count: 3")
+      expect(page).to_not have_content("Paint Count: 4000")
     end
   end
 end
