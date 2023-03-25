@@ -46,5 +46,14 @@ RSpec.describe Paint, type: :feature do
       expect(page).to have_content(latte.opacity)
       expect(page).to have_content(hazelnut.opacity)
     end
+
+    it 'link at top of page takes visitor to paint index page' do
+      paints = "Paints"
+      visit "/artists"
+
+      click_on paints
+      
+      expect(current_path).to eq("/paints")
+    end
   end
 end
