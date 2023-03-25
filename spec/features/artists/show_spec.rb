@@ -49,7 +49,7 @@ RSpec.describe 'the artists show page' do
 
     it 'displays how much paint the artist has' do
       visit "/artists/#{graves.id}"
-save_and_open_page
+
       expect(page).to have_content(graves.paint_count)
       expect(page).to_not have_content(coyote.paint_count)
     end
