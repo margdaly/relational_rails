@@ -1,8 +1,12 @@
 <h1><%= @artist.name %>'s Paints</h1>
+<hr>
+<body>
 <% @paints.each do |paint| %>
-  <h3><%= paint.name %></h3>
-  <p>
-  Brand: <%= paint.brand %><br>
-  High Pressure: <%= paint.high_pressure %><br> 
-  Opacity: <%= paint.opacity %>
+  <h3><%= link_to paint.name, "/paints/#{paint.id}" %></h3>
+    Brand: <%= paint.brand %><br>
+    High Pressure: <%= paint.high_pressure %><br> 
+    Opacity: <%= paint.opacity %><br>
 <% end %>
+<br>
+<%= link_to 'Create Paint', "/artists/#{@artist.id}/paints/new" %>
+</body>
