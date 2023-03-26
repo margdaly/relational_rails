@@ -1,4 +1,7 @@
-<h1>All Artists</h1>
+<h1>Artists</h1>
+
+<body>
 <% @artists.each do |artist| %>
   <p><b><%= artist.name %></b><small> created: <%= artist.created_at %></small></p>
 <% end %>
+</body>
