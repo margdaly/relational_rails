@@ -1,4 +1,7 @@
-<h2><%= @paint.name %></h2>
+<h1><%= @paint.name %>'s Page</h1>
+<hr>
   <p>Brand: <%= @paint.brand %></p>
   <p>High Pressure: <%= @paint.high_pressure %></p>
   <p>Opacity: <%= @paint.opacity %></p>
+
+  <p> <%= button_to "Update #{@paint.name}", "/paints/#{@paint.id}/edit", method: :get %> </p>
