@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/paints', to: 'paints#index'
   get '/paints/:id', to: 'paints#show'
   get '/artists/:artist_id/paints', to: 'artist_paints#index'
+  get '/artists/:artist_id/paints/new', to: 'artist_paints#new'
+  post 'artists/:artist_id/paints/new', to: 'artist_paints#create'
 end
