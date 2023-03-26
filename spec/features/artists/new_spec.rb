@@ -5,6 +5,8 @@ RSpec.describe 'New Artist' do
     it 'links to new page from artists index page' do
       visit '/artists'
 
+      expect(page).to_not have_content("Gamma")
+      
       click_link('New Artist')
 
       expect(current_path).to eq('/artists/new')
