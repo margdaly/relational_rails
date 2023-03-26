@@ -1,6 +1,6 @@
-<h1>Artist Show Page</h1>
+<h1><%= @artist.name %>'s Page</h1>
 
-<h2><%= @artist.name %></h2>
 <p>Sponsored: <%= @artist.sponsored %></p>
 <p>Rank: <%= @artist.rank %></p>
-<p>Paint Count: <%= @artist.paint_count %>
+<p>Paint Count: <%= @artist.paint_count %></p>
+<a href= "/artists/<%= @artist.id %>/paints"><%= @artist.name %>'s Paints</a>
