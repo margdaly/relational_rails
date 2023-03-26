@@ -10,10 +10,6 @@ RSpec.describe 'New Artist Paint' do
 
       expect(current_path).to eq("/artists/#{charney.id}/paints/new")
       expect(page).to have_content("New Paint Form")
-      # expect(page).to have_field(:name)
-      # expect(page).to have_field(:brand)
-      # expect(page).to have_field(:high_pressure)
-      # expect(page).to have_field(:opacity)
     end
 
     it 'can create a new Artist Paint' do

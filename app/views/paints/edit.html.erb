@@ -1,0 +1,15 @@
+<h1> Update <%= @paint.name %> Form</h1>
+<hr>
+<%= form_with url: "/paints/#{@paint.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+  <%= form.label :brand %>
+  <%= form.text_field :brand %><br>
+  <%= form.label :high_pressure %> <small>(check box if true)</small> <%= form.check_box :high_pressure, {}, true, false %> <br />
+  <%= form.label :opacity %>
+  <%= form.text_field :opacity %><br>
+  <br>
+  <div>
+  <%= form.submit "Update Paint" %>
+  </div>
+<% end %>

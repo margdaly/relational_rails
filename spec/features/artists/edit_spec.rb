@@ -22,14 +22,15 @@ RSpec.describe 'Edit Artist' do
       click_button 'Update Gamm'
   
       fill_in 'Name', with: 'Gamma'
-
-      expect(page).to have_field(:sponsored)
-      expect(page).to have_field(:rank)
+      uncheck 'Sponsored'
+      fill_in 'Rank', with: '7'
 
       click_button 'Update Artist'
   
       expect(current_path).to eq("/artists/#{gamma.id}")
       expect(page).to have_content('Gamma')
+      expect(page).to have_content("false")
+      expect(page).to have_content("7")
     end
   end
 end
