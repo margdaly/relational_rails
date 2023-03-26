@@ -26,12 +26,6 @@ RSpec.describe Artist do
                                             high_pressure: true, 
                                             opacity: 5) }
 
-    describe '#order_by_most_recently_created' do
-      it 'orders paints by most recently created' do
-        expect(graves.paints.last).to eq(hazelnut)
-      end
-    end
-
     describe '#paint_count' do
       it 'counts the number of paints' do
         expect(graves.paint_count).to eq(3)

@@ -1,0 +1,13 @@
+<h1>New Artist Form</h1>
+
+<%= form_with url: "/artists", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+  <%= form.label :sponsored %> <small>(check box if true)</small> <%= form.check_box :sponsored, {}, true, false %> <br />
+  <%= form.label :rank %>
+  <%= form.text_field :rank %><br>
+  <br>
+  <div>
+  <%= form.submit 'Create Artist' %>
+  </div>
+<% end %>
