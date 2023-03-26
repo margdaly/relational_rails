@@ -82,7 +82,7 @@ Then I see a link to take me to that parent's `child_table_name` page ('/parents
 **Iteration 2**
 CRUD
 
-[ ] done
+[x] done
 User Story 11, Parent Creation 
 
 As a visitor

@@ -4,3 +4,4 @@
 <p>Rank: <%= @artist.rank %></p>
 <p>Paint Count: <%= @artist.paint_count %></p>
 <a href= "/artists/<%= @artist.id %>/paints"><%= @artist.name %>'s Paints</a>
+<p> <%= button_to "Update #{@artist.name}", "/artists/#{@artist.id}/edit", method: :get %> </p>

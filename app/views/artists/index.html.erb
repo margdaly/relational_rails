@@ -1,8 +1,8 @@
 <h1>Artists</h1>
-
+<hr>
 <body>
 <% @artists.each do |artist| %>
-  <p><b><%= artist.name %></b><small> created: <%= artist.created_at %></small></p>
+  <p><b><%= link_to artist.name, "/artists/#{artist.id}" %></b><small> created: <%= artist.created_at %></small></p>
 <% end %>
 <br>
 <a href= "/artists/new">New Artist</a>
