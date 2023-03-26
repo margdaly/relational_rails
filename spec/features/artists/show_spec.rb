@@ -53,5 +53,16 @@ RSpec.describe 'the artists show page' do
       expect(page).to have_content("Paint Count: 3")
       expect(page).to_not have_content("Paint Count: 4000")
     end
+
+    it "displays link to take visitor to that artist's paint's page" do
+      artist_paints = "Mike Graves's Paints"
+      visit "/artists/#{graves.id}"
+
+      click_on artist_paints
+
+      expect(current_path).to eq("/artists/#{graves.id}/paints")
+      expect(page).to have_content("Toffee")
+      expect(page).to_not have_content("Black")
+    end
   end
 end
