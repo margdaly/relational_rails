@@ -9,4 +9,14 @@ class ArtistsController < ApplicationController
 
   def new
   end
+
+  def create
+    Artist.create(artist_params)
+    redirect_to '/artists'
+  end
+
+  private
+  def artist_params
+    params.permit(:name, :sponsored, :rank)
+  end
 end
