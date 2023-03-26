@@ -23,7 +23,7 @@ RSpec.describe '/artists', type: :feature do
     end
 
     it 'has link at top of every page that takes visitor to artist index page' do
-      artist = "Artist"
+      artists = "Artists"
       visit "/artists"
 
       click_on artists
