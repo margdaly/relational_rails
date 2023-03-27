@@ -1,6 +1,6 @@
 class PaintsController < ApplicationController
   def index
-    @paints = Paint.all
+    @paints = Paint.high_pressure_true
   end
 
   def show

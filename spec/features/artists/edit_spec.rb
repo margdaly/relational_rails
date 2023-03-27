@@ -22,7 +22,7 @@ RSpec.describe 'Edit Artist' do
       click_button 'Update Gamm'
 
       fill_in 'Name', with: 'Gamma'
-      uncheck 'Sponsored'
+      select(false, from: 'Sponsored')
       fill_in 'Rank', with: '7'
 
       click_button 'Update Artist'

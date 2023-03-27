@@ -4,45 +4,53 @@ RSpec.describe Paint, type: :feature do
   describe 'paints index page' do
     let!(:graves) { Artist.create!(name: 'Mike Graves', sponsored: true, rank: 8) }
     let!(:toffee) { graves.paints.create!(name: 'Toffee', 
-                                  brand: 'Montana Gold', 
+                                  brand: 'MTN 94', 
                                   high_pressure: false, 
                                   opacity: 3) }
     let!(:latte) { graves.paints.create!(name: 'Latte', 
-                                 brand: 'Montana Gold', 
-                                 high_pressure: false, 
+                                 brand: 'Montana', 
+                                 high_pressure: true, 
                                  opacity: 4) }
     let!(:hazelnut) { graves.paints.create!(name: 'Hazelnut', 
                                     brand: 'Molotow', 
                                     high_pressure: true, 
                                     opacity: 5) }
   
-    it 'displays all paints name' do
+    it 'only displays paints that are high pressured' do
       visit "/paints"
 
-      expect(page).to have_content(toffee.name)
+      expect(page).to_not have_content(toffee.name)
+      expect(page).to have_content(latte.name)
+      expect(page).to have_content(hazelnut.name)
+    end
+    
+    it 'displays paints name' do
+      visit "/paints"
+
+      expect(page).to_not have_content(toffee.name)
       expect(page).to have_content(latte.name)
       expect(page).to have_content(hazelnut.name)
     end
 
-    it 'displays all paints brand' do
+    it 'displays paints brand' do
       visit "/paints"
 
-      expect(page).to have_content(toffee.brand)
+      expect(page).to_not have_content(toffee.brand)
       expect(page).to have_content(latte.brand)
       expect(page).to have_content(hazelnut.brand)
     end
 
-    it 'displays if it is high pressure for all paints' do
+    it 'displays true for if paint is high pressured' do
       visit "/paints"
 
-      expect(page).to have_content(toffee.high_pressure)
+      expect(page).to_not have_content(toffee.high_pressure)
       expect(page).to have_content(latte.high_pressure)
       expect(page).to have_content(hazelnut.high_pressure)
     end
-    it 'displays all paints opacity' do
+    it 'displays paints opacity' do
       visit "/paints"
 
-      expect(page).to have_content(toffee.opacity)
+      expect(page).to_not have_content(toffee.opacity)
       expect(page).to have_content(latte.opacity)
       expect(page).to have_content(hazelnut.opacity)
     end

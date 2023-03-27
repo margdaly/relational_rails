@@ -25,7 +25,7 @@ RSpec.describe 'Edit Paint' do
   
       fill_in 'Name', with: 'Melon'
       fill_in 'Brand', with: 'MTN 94'
-      uncheck 'High pressure'
+      select(true, from: 'High pressure')
       fill_in 'Opacity', with: '3'
 
       click_button 'Update Paint'

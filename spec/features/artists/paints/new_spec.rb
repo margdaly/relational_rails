@@ -22,7 +22,7 @@ RSpec.describe 'New Artist Paint' do
       
       fill_in 'Name', with: 'Mt. Fuji'
       fill_in 'Brand', with: 'Montana'
-      check "High pressure"
+      select(true, from: 'High pressure')
       fill_in 'Opacity', with: '4'
 
       click_button('Create Paint')
