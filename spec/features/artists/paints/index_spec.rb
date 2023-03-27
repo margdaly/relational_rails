@@ -6,7 +6,7 @@ RSpec.describe 'Artist paints index' do
                                  rank: 8) }
   let!(:lava_orange) { coyote.paints.create!(name: 'Lava Orange', 
                                         brand: 'MTN 94', 
-                                        high_pressure: false, 
+                                        high_pressure: true, 
                                         opacity: 3) }
   let!(:black) { coyote.paints.create!(name: 'Black', 
                                        brand: 'Montana', 
@@ -14,7 +14,7 @@ RSpec.describe 'Artist paints index' do
                                        opacity: 5) }
   let!(:malachite) { coyote.paints.create!(name: 'Malachite', 
                                           brand: 'Molotow', 
-                                          high_pressure: false, 
+                                          high_pressure: true, 
                                           opacity: 4) }
   
   it 'displays all the names of the paint for the artist' do
@@ -48,4 +48,10 @@ RSpec.describe 'Artist paints index' do
     expect(page).to have_content(black.opacity)
     expect(page).to have_content(malachite.opacity)
   end
-end
+
+  it "displays the artist's paints in alphabetical order by name" do
+    visit "/artists/#{coyote.id}/paints"
+
+    # expect(page).should 
+  end
+end 
