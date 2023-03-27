@@ -1,9 +1,9 @@
 <h1><%= @artist.name %>'s Page</h1>
 <hr>
 <body>
+<a href= "/artists/<%= @artist.id %>/paints"><%= @artist.name %>'s Paints</a>
 <p>Sponsored: <%= @artist.sponsored %></p>
 <p>Rank: <%= @artist.rank %></p>
 <p>Paint Count: <%= @artist.paint_count %></p>
-<a href= "/artists/<%= @artist.id %>/paints"><%= @artist.name %>'s Paints</a>
 <p> <%= button_to "Update #{@artist.name}", "/artists/#{@artist.id}/edit", method: :get %> </p>
 </body>

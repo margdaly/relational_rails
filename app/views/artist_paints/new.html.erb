@@ -3,12 +3,13 @@
 <body>
 <%= form_with method: :post, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name %><br>
+  <%= form.text_field :name %><br><br>
   <%= form.label :brand %>
-  <%= form.text_field :brand %><br>
-  <%= form.label :high_pressure %> <small>(check box if true)</small> <%= form.check_box :high_pressure, {}, true, false %> <br>
+  <%= form.text_field :brand %><br><br>
+  <%= form.label :high_pressure %>
+  <%= form.select :high_pressure, [true, false] %><br><br>
   <%= form.label :opacity %>
-  <%= form.text_field :opacity %><br>
+  <%= form.text_field :opacity %><br><br>
   <div>
   <%= form.submit 'Create Paint' %>
   </div>

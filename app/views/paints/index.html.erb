@@ -1,8 +1,11 @@
 <h1>Paint's Index Page</h1>
 <hr>
 <% @paints.each do |paint| %>
+<br>
   <h3><%= link_to paint.name, "/paints/#{paint.id}" %></h3>
   <p>Brand: <%= paint.brand %></p>
   <p>High Pressure: <%= paint.high_pressure %></p>
   <p>Opacity: <%= paint.opacity %></p>
+  <br>
 <% end %>
+<br>
