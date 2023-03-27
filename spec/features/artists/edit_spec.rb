@@ -13,16 +13,16 @@ RSpec.describe 'Edit Artist' do
     end
 
     it 'can edit the artist' do
-      gamma = Artist.create!(name: 'Gamm', sponsored: false, rank: 7)
+      gamma = Artist.create!(name: 'Gamm', sponsored: true, rank: 7)
   
       visit "/artists/#{gamma.id}"
 
       expect(page).to have_content('Gamm')
-  
+      
       click_button 'Update Gamm'
-  
+
       fill_in 'Name', with: 'Gamma'
-      uncheck 'Sponsored'
+      select(false, from: 'Sponsored')
       fill_in 'Rank', with: '7'
 
       click_button 'Update Artist'

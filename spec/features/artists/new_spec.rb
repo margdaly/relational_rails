@@ -21,7 +21,7 @@ RSpec.describe 'New Artist' do
       visit '/artists/new'
 
       fill_in 'Name', with: 'Gamma'
-      uncheck 'Sponsored'
+      select(false, from: 'Sponsored')
       fill_in 'Rank', with: '8'
 
       click_button('Create Artist')
