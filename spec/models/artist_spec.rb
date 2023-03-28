@@ -42,5 +42,12 @@ RSpec.describe Artist do
         expect(graves.paint_count).to eq(3)
       end
     end
+
+    describe '#order_by_name' do
+      it "sorts artist's paints by name alphabetically" do
+        expect(graves.paints).to eq([toffee, latte, hazelnut])
+        expect(graves.order_by_name('abc')).to eq([hazelnut, latte, toffee])
+      end
+    end
   end
 end
