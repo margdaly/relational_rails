@@ -1,7 +1,7 @@
 class ArtistPaintsController < ApplicationController
   def index
     @artist = Artist.find(params[:artist_id])
-    @paints = @artist.order_by_name(params[:sort])
+    @paints = @artist.order_by(params[:sort])
   end
 
   def new

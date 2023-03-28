@@ -1,3 +1,8 @@
+**My Schema Diagram** 
+https://app.dbdesigner.net/designer/schema/612272
+
+
+
 **Iteration 1**
 CRUD
 
@@ -199,7 +204,7 @@ the child is deleted,
 and I am redirected to the child index page where I no longer see this child
 ActiveRecord
 
-[ ] done
+[x] done
 User Story 21, Display Records Over a Given Threshold 
 
 As a visitor

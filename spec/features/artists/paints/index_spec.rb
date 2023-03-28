@@ -81,4 +81,16 @@ RSpec.describe 'Artist paints index' do
     expect(current_path).to eq("/paints")
     expect(page).to_not have_content("#{lava_orange.name}")
   end  
+
+  it 'returns paints with opacity equal or higher to given number' do
+    visit "/artists/#{coyote.id}/paints"
+
+    fill_in :sort, with: 4
+    click_on("Choose Your Own Opacity")
+
+    expect(current_path).to eq("/artists/#{coyote.id}/paints")
+    expect(page).to have_content("#{malachite.name}")
+    expect(page).to have_content("#{black.name}")
+    expect(page).to_not have_content("#{lava_orange.name}")
+  end
 end 

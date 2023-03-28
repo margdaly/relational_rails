@@ -11,11 +11,14 @@ class Artist < ApplicationRecord
     self.paints.count
   end
 
-  def order_by_name(sort) 
+ # * needs to be refactored with helper methods and moved?
+  def order_by(sort) 
     if sort == 'abc'
-      self.paints.order(name: :asc)
+      paints.order(name: :asc)
+    elsif sort.present? 
+      paints.where('opacity >= ?', sort)
     else
-      self.paints
+      paints
     end
   end
 end
