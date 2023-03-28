@@ -75,5 +75,14 @@ RSpec.describe Paint, type: :feature do
 
       expect(current_path).to eq("/paints")
     end
+
+    it 'has links to edit paints info' do
+      visit "/paints"
+
+      click_on("Update #{latte.name}")
+
+      expect(current_path).to eq("/paints/#{latte.id}/edit")
+      expect(page).to have_content("Update #{latte.name} Form")
+    end
   end
 end

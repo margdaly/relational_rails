@@ -63,4 +63,13 @@ RSpec.describe 'Artist paints index' do
     expect(lava_orange.name).to appear_before(malachite.name)
     expect(malachite.name).to_not appear_before(black.name)
   end
+
+  it 'has links to edit paints info' do
+    visit "/artists/#{coyote.id}/paints"
+
+    click_on("Update #{lava_orange.name}")
+
+    expect(current_path).to eq("/paints/#{lava_orange.id}/edit")
+    expect(page).to have_content("Update #{lava_orange.name} Form")
+  end
 end 

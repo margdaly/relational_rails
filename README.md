@@ -155,7 +155,7 @@ When I click on the link
 I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
 Usability
 
-[ ] done
+[x] done
 User Story 17, Parent Update From Parent Index Page 
 
 As a visitor
@@ -164,7 +164,7 @@ Next to every parent, I see a link to edit that parent's info
 When I click the link
 I should be taken to that parent's edit page where I can update its information just like in User Story 12
 
-[ ] done
+[x] done
 User Story 18, Child Update From Childs Index Page 
 
 As a visitor
