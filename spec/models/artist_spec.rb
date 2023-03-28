@@ -43,10 +43,14 @@ RSpec.describe Artist do
       end
     end
 
-    describe '#order_by_name' do
+    describe '#order_by' do
       it "sorts artist's paints by name alphabetically" do
         expect(graves.paints).to eq([toffee, latte, hazelnut])
-        expect(graves.order_by_name('abc')).to eq([hazelnut, latte, toffee])
+        expect(graves.order_by('abc')).to eq([hazelnut, latte, toffee])
+      end
+
+      it "selects artist's paints that are a certain opacity or higher" do
+        expect(graves.order_by(4)).to eq([latte, hazelnut])
       end
     end
   end
