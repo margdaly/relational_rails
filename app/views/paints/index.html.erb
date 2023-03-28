@@ -7,5 +7,7 @@
   <p>High Pressure: <%= paint.high_pressure %></p>
   <p>Opacity: <%= paint.opacity %></p>
   <br>
+
+  <p> <%= button_to "Update #{paint.name}", "/paints/#{paint.id}/edit", method: :get %> </p>
 <% end %>
 <br>
