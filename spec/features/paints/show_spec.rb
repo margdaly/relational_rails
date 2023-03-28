@@ -47,5 +47,14 @@ RSpec.describe 'the paints show page' do
       expect(page).to_not have_content(latte.opacity)
       expect(page).to_not have_content(toffee.opacity)
     end
+
+    it "has link to delete Paint" do
+      visit "/paints/#{toffee.id}"
+
+      click_on("Delete #{toffee.name}")
+
+      expect(current_path).to eq("/paints")
+      expect(page).to_not have_content("#{toffee.name}")
+    end
   end
 end

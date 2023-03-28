@@ -1,5 +1,5 @@
 class Artist < ApplicationRecord
-  has_many :paints
+  has_many :paints, dependent: :delete_all
 
   validates_presence_of :name
 

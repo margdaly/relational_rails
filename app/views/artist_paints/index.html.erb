@@ -8,7 +8,8 @@
     Brand: <%= paint.brand %><br>
     High Pressure: <%= paint.high_pressure %><br> 
     Opacity: <%= paint.opacity %>
-  <p> <%= button_to "Update #{paint.name}", "/paints/#{paint.id}/edit", method: :get %> </p><br><br>
+  <p> <%= button_to "Update #{paint.name}", "/paints/#{paint.id}/edit", method: :get %> </p>
+  <p> <%= button_to "Delete #{paint.name}", "/paints/#{paint.id}", method: :delete %> </p><br><br>
 <% end %>
 <br>
 <br>

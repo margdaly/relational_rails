@@ -50,5 +50,14 @@ RSpec.describe '/artists', type: :feature do
 
       expect(current_path).to eq("/artists/#{coyote.id}/edit")
     end
+
+    it "has link to delete artist" do
+      visit "/artists"
+
+      click_on("Delete #{graves.name}")
+
+      expect(current_path).to eq("/artists")
+      expect(page).to_not have_content("#{graves.name}")
+    end
   end
 end

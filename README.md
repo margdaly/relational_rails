@@ -176,7 +176,7 @@ I should be taken to that `child_table_name` edit page where I can update its in
 **Iteration 3**
 CRUD
 
-[ ] done
+[x] done
 User Story 19, Parent Delete 
 
 As a visitor
@@ -187,7 +187,7 @@ Then a 'DELETE' request is sent to '/parents/:id',
 the parent is deleted, and all child records are deleted
 and I am redirected to the parent index page where I no longer see this parent
 
-[ ] done
+[x] done
 User Story 20, Child Delete 
 
 As a visitor
@@ -209,7 +209,7 @@ When I input a number value and click the submit button that reads 'Only return 
 Then I am brought back to the current index page with only the records that meet that threshold shown.
 Usability
 
-[ ] done
+[x] done
 User Story 22, Parent Delete From Parent Index Page 
 
 As a visitor
@@ -218,7 +218,7 @@ Next to every parent, I see a link to delete that parent
 When I click the link
 I am returned to the Parent Index Page where I no longer see that parent
 
-[ ] done
+[x] done
 User Story 23, Child Delete From Childs Index Page 
 
 As a visitor

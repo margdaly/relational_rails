@@ -4,6 +4,7 @@
 <% @artists.each do |artist| %>
   <p><strong><%= link_to artist.name, "/artists/#{artist.id}" %></strong><sub> created: <%= artist.created_at %></sub></p>
 <p><small> <%= link_to "Update #{artist.name}", "/artists/#{artist.id}/edit", method: :get %> </small></p>
+<p><small> <%= link_to "Delete #{artist.name}", "/artists/#{artist.id}", method: :delete %> </small></p>
 <br>
 <% end %>
 <br>

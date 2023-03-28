@@ -84,5 +84,14 @@ RSpec.describe Paint, type: :feature do
       expect(current_path).to eq("/paints/#{latte.id}/edit")
       expect(page).to have_content("Update #{latte.name} Form")
     end
+
+    it "has link to delete paint" do
+      visit "/paints"
+
+      click_button("Delete #{hazelnut.name}")
+
+      expect(current_path).to eq("/paints")
+      expect(page).to_not have_content("#{hazelnut.name}")
+    end
   end
 end

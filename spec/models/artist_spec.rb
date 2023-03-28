@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Artist do
   describe 'relationships' do
-    it { should have_many :paints }
+    it { should have_many(:paints ).dependent(:delete_all) }
   end
 
   describe "validations" do
