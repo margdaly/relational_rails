@@ -5,3 +5,4 @@
   <p>Opacity: <%= @paint.opacity %></p>
 
   <p> <%= button_to "Update #{@paint.name}", "/paints/#{@paint.id}/edit", method: :get %> </p>
+  <p> <%= button_to "Delete #{@paint.name}", "/paints/#{@paint.id}", method: :delete %> </p>
