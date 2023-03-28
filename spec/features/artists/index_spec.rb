@@ -42,5 +42,13 @@ RSpec.describe '/artists', type: :feature do
 
       expect(current_path).to eq("/artists")
     end
+
+    it 'has a link to update artist' do
+      visit "/artists"
+
+      click_on("Update #{coyote.name}")
+
+      expect(current_path).to eq("/artists/#{coyote.id}/edit")
+    end
   end
 end
