@@ -1,7 +1,7 @@
 <h1><%= @artist.name %>'s Paints</h1>
 <hr>
 <body>
-
+<%= link_to 'Index Alphabetically', "/artists/#{@artist.id}/paints?sort=abc" %>
 <br>
 <% @paints.each do |paint| %>
   <h3><%= link_to paint.name, "/paints/#{paint.id}" %></h3>

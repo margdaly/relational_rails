@@ -4,18 +4,18 @@ RSpec.describe 'Artist paints index' do
   let!(:coyote) { Artist.create!(name: 'Criminal Coyote', 
                                  sponsored: true, 
                                  rank: 8) }
+  let!(:malachite) { coyote.paints.create!(name: 'Malachite', 
+                                        brand: 'Molotow', 
+                                        high_pressure: true, 
+                                        opacity: 4) }
   let!(:lava_orange) { coyote.paints.create!(name: 'Lava Orange', 
                                         brand: 'MTN 94', 
-                                        high_pressure: false, 
+                                        high_pressure: true, 
                                         opacity: 3) }
   let!(:black) { coyote.paints.create!(name: 'Black', 
                                        brand: 'Montana', 
                                        high_pressure: true, 
                                        opacity: 5) }
-  let!(:malachite) { coyote.paints.create!(name: 'Malachite', 
-                                          brand: 'Molotow', 
-                                          high_pressure: false, 
-                                          opacity: 4) }
   
   it 'displays all the names of the paint for the artist' do
     visit "/artists/#{coyote.id}/paints"
@@ -48,4 +48,19 @@ RSpec.describe 'Artist paints index' do
     expect(page).to have_content(black.opacity)
     expect(page).to have_content(malachite.opacity)
   end
-end
+
+  it "links to artist's paints in alphabetical order by name" do
+    visit "/artists/#{coyote.id}/paints"
+  
+    expect(malachite.name).to appear_before(lava_orange.name)
+    expect(lava_orange.name).to appear_before(black.name)
+    expect(black.name).to_not appear_before(malachite.name)
+
+    click_link "Index Alphabetically"
+    
+    expect(current_path).to eq("/artists/#{coyote.id}/paints")
+    expect(black.name).to appear_before(lava_orange.name)
+    expect(lava_orange.name).to appear_before(malachite.name)
+    expect(malachite.name).to_not appear_before(black.name)
+  end
+end 

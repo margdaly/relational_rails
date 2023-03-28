@@ -10,4 +10,12 @@ class Artist < ApplicationRecord
   def paint_count
     self.paints.count
   end
+
+  def order_by_name(sort) 
+    if sort == 'abc'
+      self.paints.order(name: :asc)
+    else
+      self.paints
+    end
+  end
 end
