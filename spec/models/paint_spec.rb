@@ -6,18 +6,20 @@ RSpec.describe Paint, type: :model do
   end
 
   describe "instance methods" do
-    describe 'high pressure true' do
+    before(:each) do
+      @charney = Artist.create!(name: 'Charney', sponsored: true, rank: 8)
+      @venice = @charney.paints.create!(name: "Venice", brand: "Montana", high_pressure: false, opacity: 2)
+      @slate = @charney.paints.create!(name: "Slate", brand: "Montana", high_pressure: true, opacity: 5)
+    end
+
+    describe '#high_pressure_true' do
       it 'selects paints that are high pressured' do
-        charney = Artist.create!(name: 'Charney', sponsored: true, rank: 8)
-        venice = charney.paints.create!(name: "Venice", brand: "Montana", high_pressure: false, opacity: 2)
-        slate = charney.paints.create!(name: "Slate", brand: "Montana", high_pressure: true, opacity: 5)
+        expect(Paint.high_pressure_true).to eq([@slate])
 
-        expect(Paint.high_pressure_true).to eq([slate])
+        @venice.high_pressure = true
+        @venice.save
 
-        venice.high_pressure = true
-        venice.save
-
-        expect(Paint.high_pressure_true).to eq([slate, venice])
+        expect(Paint.high_pressure_true).to eq([@slate, @venice])
       end
     end
   end
