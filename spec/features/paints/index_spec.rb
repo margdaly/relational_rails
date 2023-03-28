@@ -88,10 +88,10 @@ RSpec.describe Paint, type: :feature do
     it "has link to delete paint" do
       visit "/paints"
 
-      click_on("Delete #{toffee.name}")
+      click_button("Delete #{hazelnut.name}")
 
       expect(current_path).to eq("/paints")
-      expect(page).to_not have_content("#{toffee.name}")
+      expect(page).to_not have_content("#{hazelnut.name}")
     end
   end
 end
