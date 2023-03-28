@@ -64,5 +64,14 @@ RSpec.describe 'the artists show page' do
       expect(page).to have_content("Toffee")
       expect(page).to_not have_content("Black")
     end
+
+    it "has link to delete Artist" do
+      visit "/artists/#{graves.id}"
+
+      click_on("Delete #{graves.name}")
+
+      expect(current_path).to eq("/artists")
+      expect(page).to_not have_content("#{graves.name}")
+    end
   end
 end
