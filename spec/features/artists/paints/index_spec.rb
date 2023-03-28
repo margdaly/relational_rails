@@ -6,7 +6,7 @@ RSpec.describe 'Artist paints index' do
                                  rank: 8) }
   let!(:malachite) { coyote.paints.create!(name: 'Malachite', 
                                         brand: 'Molotow', 
-                                        high_pressure: true, 
+                                        high_pressure: false, 
                                         opacity: 4) }
   let!(:lava_orange) { coyote.paints.create!(name: 'Lava Orange', 
                                         brand: 'MTN 94', 
@@ -72,4 +72,13 @@ RSpec.describe 'Artist paints index' do
     expect(current_path).to eq("/paints/#{lava_orange.id}/edit")
     expect(page).to have_content("Update #{lava_orange.name} Form")
   end
+
+  it "has link to delete paint" do
+    visit "/artists/#{coyote.id}/paints"
+
+    click_on("Delete #{lava_orange.name}")
+
+    expect(current_path).to eq("/paints")
+    expect(page).to_not have_content("#{lava_orange.name}")
+  end  
 end 
