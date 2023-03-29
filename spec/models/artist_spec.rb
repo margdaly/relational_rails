@@ -9,23 +9,11 @@ RSpec.describe Artist do
     it { should validate_presence_of :name }
   end
 
-  describe '#instance_methods' do
+  describe '#class_methods' do
     let!(:coyote) { Artist.create!(name: 'Criminal Coyote', sponsored: false, rank: 9, created_at: 'Sun, 26 Mar 2023 03:28:02 UTC +00:00') }
     let!(:graves) { Artist.create!(name: 'Mike Graves', sponsored: true, rank: 8, created_at: 'Sat, 25 Mar 2023 03:28:02 UTC +00:00') }
     let!(:mars) { Artist.create!(name: 'Farris Mars', sponsored: true, rank: 9, created_at: 'Fri, 24 Mar 2023 03:28:02 UTC +00:00') }
-    let!(:toffee) { graves.paints.create!(name: 'Toffee', 
-                                          brand: 'Montana', 
-                                          high_pressure: false, 
-                                          opacity: 3) }
-    let!(:latte) { graves.paints.create!(name: 'Latte', 
-                                         brand: 'Montana', 
-                                         high_pressure: false, 
-                                         opacity: 4) }
-    let!(:hazelnut) { graves.paints.create!(name: 'Hazelnut', 
-                                            brand: 'Molotow', 
-                                            high_pressure: true, 
-                                            opacity: 5) }
-
+    
     describe '#order_by_most_recently_created' do
       it 'sorts Artists with most recently created first' do
         expect(Artist.order_by_most_recently_created).to eq([coyote, graves, mars])
@@ -36,7 +24,23 @@ RSpec.describe Artist do
         expect(Artist.order_by_most_recently_created).to eq([graves, coyote, mars])
       end
     end
-                                          
+  end
+  
+  describe '#instance_methods' do
+    let!(:graves) { Artist.create!(name: 'Mike Graves', sponsored: true, rank: 8, created_at: 'Sat, 25 Mar 2023 03:28:02 UTC +00:00') }
+    let!(:toffee) { graves.paints.create!(name: 'Toffee', 
+                                          brand: 'Montana', 
+                                          high_pressure: false, 
+                                          opacity: 3) }
+    let!(:latte) { graves.paints.create!(name: 'Latte', 
+                                          brand: 'Montana', 
+                                          high_pressure: false, 
+                                          opacity: 4) }
+    let!(:hazelnut) { graves.paints.create!(name: 'Hazelnut', 
+                                            brand: 'Molotow', 
+                                            high_pressure: true, 
+                                            opacity: 5) }
+
     describe '#paint_count' do
       it 'counts the number of paints' do
         expect(graves.paint_count).to eq(3)
